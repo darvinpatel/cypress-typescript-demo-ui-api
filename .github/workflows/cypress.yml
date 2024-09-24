@@ -24,6 +24,9 @@ jobs:
       - name: Install cypress and typescript
         run: npm install cypress typescript @types/node @types/cypress --save-dev 
 
+      - name: Install Cypress binaries
+        run: cypress intall
+        
       - name: Run Cypress tests
         run: npx cypress run
 
