@@ -1,6 +1,8 @@
 <h1>
- Test automation with <a href="https://cypress.io"> <img width="140" alt="Cypress Logo" src="https://s4-recruiting.cdn.greenhouse.io/external_greenhouse_job_boards/logos/400/113/000/resized/logo_landscape_(1).png?1643756332" /> </a> on <a href="https://opensource-demo.orangehrmlive.com/">Demo OrangeHRMe</a> & <a href="https://reqres.in/">Req-Res</a>
+ Test automation with <a href="https://cypress.io"> <img width="140" alt="Cypress Logo" src="https://s4-recruiting.cdn.greenhouse.io/external_greenhouse_job_boards/logos/400/113/000/resized/logo_landscape_(1).png?1643756332" /> </a> on <a href="https://opensource-demo.orangehrmlive.com/">Demo OrangeHRM</a> & <a href="https://reqres.in/">Req-Res</a>
 </h1>
+
+![cypress_results](images/cypress-api-ui.png)
 
 > **Note**
 >
@@ -49,7 +51,7 @@ cd cypress-typescript-demo-ui-api
 npm install cypress typescript @types/node @types/cypress --save-dev
 ```
 
-### Verify Cypress(a)
+### 3.1 Verify Cypress
 
 ```shell
 npx cypress -v
@@ -61,7 +63,7 @@ Cypress binary version: 13.14.2
 Electron version: 27.3.10
 Bundled Node version: 18.17.1
 ```
-### Verify Cypress(b)
+### 3.2 Verify Cypress
 
 ```shell
 npx cypress verify
@@ -72,13 +74,13 @@ npx cypress verify
 ✔  Verified Cypress! /Users/darwinpatel/Library/Caches/Cypress/13.14.2/Cypress.app
 ```
 
-### Open Cypress
+### 4. Open Cypress
 
 ```shell
 npx cypress open
 ```
 
-### Run all tests in Cypress 
+### 5. Run all tests in Cypress 
 
 ```shell
 npx cypress run

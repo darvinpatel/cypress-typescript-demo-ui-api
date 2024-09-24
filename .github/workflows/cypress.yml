@@ -1,0 +1,38 @@
+name: Run Cypress TypeScript Tests
+
+on:
+  push:
+    branches:
+      - main  
+  pull_request:
+    branches:
+      - main  
+
+jobs:
+  cypress:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'  
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Compile TypeScript files
+        run: npm run build  
+
+      - name: Run Cypress tests
+        run: npx cypress run
+
+      - name: Upload Cypress results
+        if: always()  # Ensure this step runs even if previous steps fail
+        uses: actions/upload-artifact@v2
+        with:
+          name: cypress-results
+          path: cypress/results 
