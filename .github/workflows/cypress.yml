@@ -21,11 +21,8 @@ jobs:
         with:
           node-version: '20'  
 
-      - name: Install dependencies
-        run: npm install 
-
-      - name: Install binaries
-        run: cypress install  
+      - name: Install cypress and typescript
+        run: npm install cypress typescript @types/node @types/cypress --save-dev 
 
       - name: Run Cypress tests
         run: npx cypress run
