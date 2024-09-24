@@ -1,51 +1,18 @@
-name: Run Cypress TypeScript Tests
+name: Cypress Typescript Regressions
 
 on:
   push:
-    branches:
-      - main  # Adjust this if you want to run on a different branch
-  pull_request:
-    branches:
-      - main  # Adjust this if you want to run on a different branch
+    branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
-  cypress:
+  build:
+    environment: main
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '20'  # Change to your desired Node.js version
-
-      - name: Cache node_modules
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-node-modules-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-modules-
-
-      - name: Cache Cypress binary
-        uses: actions/cache@v3
-        with:
-          path: ~/.cache/Cypress
-          key: ${{ runner.os }}-cypress-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-cypress-
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run Cypress tests
-        run: npx cypress run  # Run Cypress via npx
-
-      - name: Upload Cypress results
-        if: always()  # Ensure this step runs even if previous steps fail
-        uses: actions/upload-artifact@v3
-        with:
-          name: cypress-results
-          path: cypress/results # Adjust the path if your results are stored elsewhere
+    - uses: actions/checkout@v3
+    - name: Cypress run
+      uses: cypress-io/github-action@v6
+      with:
+        browser: chrome
