@@ -3,10 +3,10 @@ name: Run Cypress TypeScript Tests
 on:
   push:
     branches:
-      - main  
+      - main  # Adjust this if you want to run on a different branch
   pull_request:
     branches:
-      - main  
+      - main  # Adjust this if you want to run on a different branch
 
 jobs:
   cypress:
@@ -14,22 +14,38 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v2
         with:
-          node-version: '20'  
+          node-version: '20'  # Change to your desired Node.js version
 
-      - name: Install cypress and typescript
-        run: npm install cypress typescript @types/node @types/cypress --save-dev 
-        
+      - name: Cache node_modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-modules-
+
+      - name: Cache Cypress binary
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/Cypress
+          key: ${{ runner.os }}-cypress-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-cypress-
+
+      - name: Install dependencies
+        run: npm install
+
       - name: Run Cypress tests
-        run: npx cypress run
+        run: npx cypress run  # Run Cypress via npx
 
       - name: Upload Cypress results
         if: always()  # Ensure this step runs even if previous steps fail
         uses: actions/upload-artifact@v3
         with:
           name: cypress-results
-          path: cypress/results 
+          path: cypress/results # Adjust the path if your results are stored elsewhere
