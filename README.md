@@ -4,6 +4,9 @@
 
 ![cypress_results](images/cypress-api-ui.png)
 
+## Sample Run | Video
+[<img src="https://github.com/darvinpatel/cypress-typescript-demo-ui-api/blob/main/images/cypress-api-ui.png?raw=true" width="50%">](https://youtu.be/AGxq3mzNkSg)
+
 > **Note**
 >
 > +  **<a href="https://opensource-demo.orangehrmlive.com">Demo OrangeHRM</a>** is a HR system and quite popular for testing advanced concepts
