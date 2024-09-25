@@ -32,7 +32,7 @@ node -v
 >This command will display the installed version of Node.js if it is installed. For example, it might return something like v16.13.0.
 
 ```shell
-node -v
+npm -v
 ```
 >This will display the installed version of npm if it is present.
 
