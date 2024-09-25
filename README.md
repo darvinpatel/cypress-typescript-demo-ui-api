@@ -5,7 +5,7 @@
 ![cypress_results](images/cypress-api-ui.png)
 
 ## Sample Run | Video
-[<img src="https://github.com/darvinpatel/cypress-typescript-demo-ui-api/blob/main/images/cypress-api-ui.png?raw=true" width="50%">](https://youtu.be/AGxq3mzNkSg)
+[<img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" width="50%">](https://youtu.be/AGxq3mzNkSg)
 
 > **Note**
 >
